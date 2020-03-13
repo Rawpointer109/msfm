@@ -18,6 +18,7 @@ namespace geometry
 class Coordinate
 {
 public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
     Coordinate(const std::array<double, 3> &Ref);
     Coordinate(double RefX, double RefY, double RefZ);
     Coordinate(const Eigen::Vector3d &Ref);
@@ -25,16 +26,19 @@ public:
     const std::array<double, 3> &GetReference() const;
     static Eigen::Matrix3d R_Enu_Ecef(double Lon, double Lat);
 
+    // (lon, lat, ele) <==> (x, y, z)
     std::array<double, 3> Geodetic2Relative(const std::array<double, 3> &Coord) const;
     std::array<double, 3> Relative2Geodetic(const std::array<double, 3> &Coord) const;
     Eigen::Vector3d Geodetic2Relative(const Eigen::Vector3d &Coord) const;
     Eigen::Vector3d Relative2Geodetic(const Eigen::Vector3d &Coord) const;
 
+    // (lon, lat, ele) <==> (X, Y, Z)
     std::array<double, 3> Geodetic2Ecef(const std::array<double, 3> &Coord) const;
     std::array<double, 3> Ecef2Geodetic(const std::array<double, 3> &Coord) const;
     Eigen::Vector3d Geodetic2Ecef(const Eigen::Vector3d &Coord) const;
     Eigen::Vector3d Ecef2Geodetic(const Eigen::Vector3d &Coord) const;
 
+    // (lon, lat, ele) <==> (e, n, u)
     std::array<double, 3> Geodetic2Enu(const std::array<double, 3> &Coord) const;
     std::array<double, 3> Enu2Geodetic(const std::array<double, 3> &Coord) const;
     Eigen::Vector3d Geodetic2Enu(const Eigen::Vector3d &Coord) const;
