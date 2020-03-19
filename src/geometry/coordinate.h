@@ -4,7 +4,7 @@
 #include <memory>
 #include <vector>
 
-#include "Eigen/Dense"
+#include "eigen3/Eigen/Dense"
 
 namespace geodetic_converter 
 {

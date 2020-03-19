@@ -16,9 +16,14 @@ find_package(Eigen3 REQUIRED)
 include_directories(${EIGEN3_INCLUDE_DIR})
 
 find_package(PCL REQUIRED)
-add_definitions(${PCL_DIFINITIONS})
+add_definitions(${PCL_DEFINITIONS})
 include_directories(${PCL_INCLUDE_DIRS})
 link_libraries(${PCL_LIBRARY_DIRS})
+
+# find_package(OpenCV REQUIRED)
+# add_definitions(${OpenCV_DEFINITIONS})
+# include_directories(${OpenCV_INCLUDE_DIRS})
+# link_libraries(${OpenCV_LIBRARY_DIRS})
 
 include_directories(${PROJECT_SOURCE_DIR}/src
                     ${PROJECT_SOURCE_DIR}/src/feature
