@@ -36,6 +36,7 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/lib)
 
 set(HEADER_ROOT ${PROJECT_SOURCE_DIR}/src)
 file(GLOB_RECURSE HEADERS 
+     src/*.h
      src/feature/*.h 
      src/frame/*.h 
      src/geometry/*.h

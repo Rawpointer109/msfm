@@ -44,14 +44,14 @@ Eigen::Vector2f msfm::frame::CameraFrame::World2Pixel(
     Eigen::Vector3f pCam = World2Frame(Coord);
     pCam /= pCam[2];
     Eigen::Vector3f pixel = _Intrinsic->_K * pCam;
-    if (pixel[1] < 0 || pixel[1] >= _Intrinsic->_Width 
-            || pixel[0] < 0 || pixel[1] >= _Intrinsic->_Height) 
+    if (pixel[0] < 0 || pixel[0] >= _Intrinsic->_Width 
+            || pixel[1] < 0 || pixel[1] >= _Intrinsic->_Height) 
     {
         return Eigen::Vector2f(-1, -1);
     } 
     else
     {
-        return Eigen::Vector2f(pixel[1], pixel[0]);
+        return Eigen::Vector2f(pixel[0], pixel[1]);
     }
 }
 
@@ -60,9 +60,9 @@ Eigen::Vector3f msfm::frame::CameraFrame::Pixel2Camera(
         float Depth) const
 {
     // x = (u - cx) * z / fx
-    float x = (Pixel[1] - _Intrinsic->_K(0, 2)) * Depth / _Intrinsic->_K(0, 0);
+    float x = (Pixel[0] - _Intrinsic->_K(0, 2)) * Depth / _Intrinsic->_K(0, 0);
     // y = (v - cy) * z / fy
-    float y = (Pixel[0] - _Intrinsic->_K(1, 2)) * Depth / _Intrinsic->_K(1, 1);
+    float y = (Pixel[1] - _Intrinsic->_K(1, 2)) * Depth / _Intrinsic->_K(1, 1);
     return Eigen::Vector3f(x, y, Depth);
 }
 

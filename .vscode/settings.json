@@ -51,6 +51,10 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "string": "cpp",
-        "core": "cpp"
+        "core": "cpp",
+        "forward_list": "cpp",
+        "unordered_set": "cpp",
+        "mutex": "cpp",
+        "valarray": "cpp"
     }
 }

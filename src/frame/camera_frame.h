@@ -33,18 +33,19 @@ public:
     Eigen::Matrix<float, 3, 4> GetProjectionMatrix() const;
 
     /**
-     * (X, Y, Z) to (row, col), if point out of frustum, (-1, -1) is returned
+     * (X, Y, Z) to (u, v), in which u along image x axis
+     * if point out of frustum, (-1, -1) is returned
      * */
     Eigen::Vector2f World2Pixel(const Eigen::Vector3f &Coord) const;
     
     /**
-     *  (row, col) ==> (x, y, z)
+     *  (u, v) ==> (x, y, z), in which u along image x axis
      * */
     Eigen::Vector3f Pixel2Camera(const Eigen::Vector2f &Pixel, 
                                  float Depth = 1) const;
     
     /**
-     *  (row, col) ==> (X, Y, Z)
+     *  (u, v) ==> (X, Y, Z), in which u along image x axis
      * */
     Eigen::Vector3f Pixel2World(const Eigen::Vector2f &Pixel, 
                                 float Depth = 1) const;
